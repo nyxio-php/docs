@@ -26,6 +26,6 @@
 
 ### Kernel
 
-#### [DI](docs/documentation/di.md) – container
+#### [DI](documentation/di.md) – container
 
 #### [Providers](documentation/providers.md) – bootstrap application
