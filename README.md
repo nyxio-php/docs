@@ -1,6 +1,6 @@
 # Documentation
 
-[Getting started](https://github.com/nyx-php/docs/documentation/getting-started.md)
+[Getting started](documentation/getting-started.md)
 
 <br>
 
