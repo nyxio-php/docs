@@ -12,9 +12,7 @@ You can require dependencies in your class constructor method:
 <?php
 
 class MyService {
-
     public function __construct(private readonly AnotherService $another) {
-    
     }
     
     public function doSomething(): void
@@ -41,7 +39,6 @@ use Nyx\Container\ContainerInterface;
 use Nyx\Provider\ProviderInterface;
 
 class MyProvider implements ProviderInterface{
-
     public function __construct(private readonly ContainerInterface $container) {
     }
     
