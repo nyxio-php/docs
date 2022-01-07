@@ -14,7 +14,7 @@
 
 [Actions](documentation/actions.md) – "controllers"
 <br>[Request](documentation/request.md) – HTTP request
-<br>[Request](documentation/response.md) – HTTP response
+<br>[Response](documentation/response.md) – HTTP response
 <br>[Routing](documentation/routing.md) – simple and fast
 <br> [Validation](documentation/validation.md) – for request data and url
 <br> [Middlewares](documentation/middlewares.md)

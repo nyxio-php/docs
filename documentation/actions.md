@@ -1,7 +1,7 @@
 # Actions
 
 >**Actions** its almost like **Controllers** in *MVC*, but with one important difference:
-><br>One **Action** handle only one URL.
+><br>One **Action** handle only one **URL**.
 
 <br>
 
@@ -28,7 +28,7 @@ class CreateUser {
     
     }
     
-    public function handle(Request $request, Response $response): ResponseInterface
+    public function handle(Http\Request $request, Http\Response $response): ResponseInterface
     {
         $user = $this->createUser($request->post());
         
