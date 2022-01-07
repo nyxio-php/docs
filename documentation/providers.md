@@ -1,8 +1,11 @@
 # Providers
 
->Provider allows you to make presets when initializing the application.
+> Provider allows you to make presets when initializing the application
 
-<br>Example
+<br>
+
+###### Example
+
 ```php
 <?php 
 
