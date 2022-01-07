@@ -36,9 +36,7 @@ use Psr\Http\Message\ResponseInterface;
 #[Validation(CreateUserValidation::class)]
 #[RouteGroup('api')]
 class CreateUser {
-
     public function __construct(private readonly CreateUserService $createUser) {
-    
     }
     
     public function handle(Http\Request $request, Http\Response $response): ResponseInterface
