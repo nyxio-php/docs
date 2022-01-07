@@ -7,6 +7,7 @@ You can require dependencies in your class constructor method:
 <?php
 
 class MyService {
+
     public function __construct(private readonly AnotherService $another) {
     
     }
@@ -21,7 +22,8 @@ class MyService {
 > <br><br>Good practice is to bind and singleton most of your classes in [Providers](providers.md)
 
 <br>
-Also, you can use `Nyx\Container\ContainerInterface` in your class constructor method, for access to application singletons, binds, create instances and getting other methods dependencies.
+
+Also, you can use ` Nyx\Container\ContainerInterface ` in your class constructor method, for access to application singletons, binds, create instances and getting other methods dependencies.
 
 ###### Example:
 ```php
@@ -31,6 +33,7 @@ use Nyx\Container\ContainerInterface;
 use Nyx\Provider\ProviderInterface;
 
 class MyProvider implements ProviderInterface{
+
     public function __construct(private readonly ContainerInterface $container) {
     }
     
