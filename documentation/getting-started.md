@@ -75,9 +75,16 @@ require_once __DIR__ . '/vendor/autoload.php';
 $worker = new \Workerman\Worker('http://0.0.0.0:8080');
 
 $worker->onWorkerStart = static function (\Workerman\Worker $worker) {
-    $application = (new Nyx\Kernel\Kernel())->bootstrap(actions: [
-        YourAppNamespace\Hello::class
-    ]);
+    $application = (new Nyx\Kernel\Kernel())->bootstrap(
+        actions: [
+            YourAppNamespace\Hello::class
+        ],
+        providers: [
+            Nyx\Kernel\Provider\KernelProvider::class,
+            Nyx\Kernel\Provider\WorkermanProvider::class,
+            Nyx\Kernel\Provider\ValidationProvider::class,
+        ]
+    );
 
     $worker->onMessage = $application->message();
 };
