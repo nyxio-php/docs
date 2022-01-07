@@ -26,6 +26,6 @@
 
 ### Kernel
 
-#### [DI](documentation/di.md) – container
+#### [Container](documentation/container.md) – dependency injection
 
 #### [Providers](documentation/providers.md) – bootstrap application
