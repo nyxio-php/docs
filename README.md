@@ -1,18 +1,31 @@
 # Documentation
 
-[Getting started](documentation/getting-started.md)
+### Requirements
+
+- [composer](https://getcomposer.org/)
+- PHP **8.1** or *higher*
+- [ext-mbstring](https://www.php.net/manual/en/book.mbstring.php)
 
 <br>
 
-
-## Http
-[Routing](documentation/routing.md)
-<br>[Validation](documentation/validation.md)
-<br>[Middlewares](documentation/middlewares.md)
-<br>[Actions](documentation/actions.md) (controllers)
+#### [Getting started](documentation/getting-started.md) – install and configure
 
 <br>
 
-## Kernel
-[DI](docs/documentation/di.md)
-<br>[Providers](documentation/providers.md)
+### Http
+
+#### [Routing](documentation/routing.md) – simple and fast
+
+#### [Actions](documentation/actions.md) – "controllers"
+
+#### [Validation](documentation/validation.md) – for request data and url
+
+#### [Middlewares](documentation/middlewares.md)
+
+<br>
+
+### Kernel
+
+#### [DI](docs/documentation/di.md) – container
+
+#### [Providers](documentation/providers.md) – bootstrap application
