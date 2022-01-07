@@ -23,6 +23,7 @@ Example simple Action with [Routing](routing.md), [Validation](validation.md) an
 use Nyx\Http;
 use Nyx\Routing\Attribute\Middleware;
 use Nyx\Routing\Attribute\Route;
+use Nyx\Routing\Attribute\RouteGroup;
 use Nyx\Validation\Attribute\Validation;
 use Psr\Http\Message\ResponseInterface;
 
@@ -33,6 +34,7 @@ use Psr\Http\Message\ResponseInterface;
 #[Middleware(AdminAuthMiddleware::class)]
 #[Middleware(AnotherMiddleware::class)]
 #[Validation(CreateUserValidation::class)]
+#[RouteGroup('api')]
 class CreateUser {
 
     public function __construct(private readonly CreateUserService $createUser) {
