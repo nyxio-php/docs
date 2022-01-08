@@ -35,7 +35,8 @@ use Psr\Http\Message\ResponseInterface;
 #[Middleware(AnotherMiddleware::class)]
 #[Validation(CreateUserValidation::class)]
 #[RouteGroup('api')]
-class CreateUser {
+class CreateUser 
+{
     public function __construct(private readonly CreateUserService $createUser) {
     }
     
