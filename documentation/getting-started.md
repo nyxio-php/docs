@@ -2,13 +2,13 @@
 
 ## Installation
 
-1. Open terminal, create project and start server:
+1. Open terminal and create project:
 
 ```shell
 composer create-project nyxio/app example-app
 ```
 
-2. Open your directory:
+2. Open created directory:
 
 ```shell
 cd example-app
