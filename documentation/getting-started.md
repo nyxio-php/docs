@@ -20,7 +20,7 @@ cd example-app
 php server.php start
 ```
 
-4. Open http://localhost:8080/
+4. Open http://localhost:8080/api/hello
 
 <br>
 That's all you need to create and run the application.
