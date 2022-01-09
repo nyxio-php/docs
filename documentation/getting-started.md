@@ -5,7 +5,7 @@
 1. Open terminal, create project and start server:
 
 ```shell
-composer create-project nyx/app example-app
+composer create-project nyxio/app example-app
 ```
 
 2. Open your directory:

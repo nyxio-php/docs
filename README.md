@@ -1,4 +1,4 @@
-# Documentation
+# nyxio documentation
 
 #### Requirements
 

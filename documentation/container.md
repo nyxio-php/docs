@@ -37,11 +37,11 @@ singletons, binds, create instances and getting other methods dependencies.
 ```php
 <?php
 
-use Nyx\Container\ContainerInterface;
-use Nyx\Provider\ProviderInterface;
+use Nyxio\Contract\Container\ContainerInterface;
+use Nyxio\Contract\Provider\ProviderInterface;
 
-class MyProvider implements ProviderInterface{
-
+class MyProvider implements ProviderInterface
+{
     public function __construct(private readonly ContainerInterface $container) {
     }
     
@@ -60,7 +60,7 @@ class MyProvider implements ProviderInterface{
 
 <br>
 
-And of course, you can resolve dependency on methods.
+And of course, you can resolve dependency in methods.
 
 ###### Example:
 ```php

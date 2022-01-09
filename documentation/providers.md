@@ -9,8 +9,8 @@
 ```php
 <?php 
 
-use Nyx\Container\ContainerInterface;
-use Nyx\Provider\ProviderInterface;
+use Nyxio\Container\ContainerInterface;
+use Nyxio\Provider\ProviderInterface;
 
 class MyServiceProvider implements ProviderInterface {
 

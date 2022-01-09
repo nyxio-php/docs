@@ -20,11 +20,11 @@ Example simple Action with [Routing](routing.md), [Validation](validation.md) an
 ```php
 <?php
 
-use Nyx\Http;
-use Nyx\Routing\Attribute\Middleware;
-use Nyx\Routing\Attribute\Route;
-use Nyx\Routing\Attribute\RouteGroup;
-use Nyx\Validation\Attribute\Validation;
+use Nyxio\Http;
+use Nyxio\Routing\Attribute\Middleware;
+use Nyxio\Routing\Attribute\Route;
+use Nyxio\Routing\Attribute\RouteGroup;
+use Nyxio\Validation\Attribute\Validation;
 use Psr\Http\Message\ResponseInterface;
 
 #[Route(
