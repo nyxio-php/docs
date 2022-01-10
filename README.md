@@ -8,6 +8,11 @@
 
 <br>
 
+#### Current restrictions
+- By default you cannot get files from request. You can extend `Nyxio\Http\Request` and `Nyxio\Http\Factory\RequestFactory` (extend or implement PSR-17 `ServerRequestFacotryInterface`) and implement your functionality. See [Providers](documentation/providers.md) for register your implementation of `Nyxio\Http\Factory\RequestFactory` in container)
+
+<br>
+
 [Getting started](documentation/getting-started.md) – install and configure
 
 ## Http
