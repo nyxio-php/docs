@@ -25,6 +25,82 @@ class CreateUserValidation implements MiddlewareInterface
         $this->validator->attribute('age')->rule('integer')->nullable();
         $this->validator->attribute('email')->rule('email')->notNullable()->notAllowsEmpty('Empty email!');
 
+        $this->validator->validateOrException($request->post()); // or  $this->validator->getErrors($request->post());
+        
+        return $next();
+    }
+}
+
+```
+<br>
+
+
+## Register custom rules for validator
+1. Create class with rules:
+```php
+<?php
+
+declare(strict_types=1);
+
+use Nyxio\Validation\Attribute\Rule;
+use Nyxio\Validation\Attribute\RuleGroup;
+
+#[RuleGroup(name: 'app')] // not required attribute
+class MyProjectRules
+{
+    #[Rule('my-custom-rule', 'Attribute is not valid')]
+    public function myRule(mixed $value): bool
+    {
+        return $value => 1337;
+    }
+}
+```
+2. Register your rules in provider:
+```php
+<?php
+
+declare(strict_types=1);
+
+use Nyxio\Contract\Provider\ProviderInterface;
+use Nyxio\Contract\Validation\RuleExecutorCollectionInterface;
+
+class AppProvider implements ProviderInterface
+{
+    public function __construct(private readonly RuleExecutorCollectionInterface $ruleExecutorCollection)
+    {
+    }
+
+    public function process(): void
+    {
+        $this->ruleExecutorCollection->register(MyProjectRules::class);
+    }
+}
+```
+3. Use:
+```php
+<?php
+
+declare(strict_types=1);
+
+use Nyxio\Contract\Http\MiddlewareInterface;
+use Nyxio\Contract\Validation\Handler\ValidatorCollectionInterface;
+use Nyxio\Http\Request;
+use Nyxio\Http\Response;
+use Psr\Http\Message\ResponseInterface;
+
+class CreateUserValidation implements MiddlewareInterface
+{
+    public function __construct(private readonly ValidatorCollectionInterface $validator)
+    {
+    }
+
+    public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
+    {
+        //...
+        $this->validator->attribute('user_id')->rule('integer')->rule('app.my-custom-rule');
+        
+        $this->validator->validateOrException($request->post());
+        
         return $next();
     }
 }
