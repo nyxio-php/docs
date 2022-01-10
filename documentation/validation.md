@@ -51,7 +51,7 @@ class MyProjectRules
     #[Rule('my-custom-rule', 'Attribute is not valid')]
     public function myRule(mixed $value): bool
     {
-        return $value => 1337;
+        return \strlen($value) >= 10;
     }
 }
 ```
