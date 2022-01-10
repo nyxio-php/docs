@@ -1,5 +1,16 @@
 # Validation
 
+## Default rules
+- `string`
+- `integer`
+- `numeric`
+- `float`
+- `bool`
+- `array`
+- `email`
+- `max-len` with param `max`
+- `min-len` with param `min`
+
 ###### Example:
 ```php
 <?php
@@ -20,7 +31,7 @@ class CreateUserValidation implements MiddlewareInterface
 
     public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
     {
-        $this->validator->attribute('firstName')->rule('string')->notAllowsEmpty('Empty firstname!')->notNullable();
+        $this->validator->attribute('firstName')->rule('string')->rule('min-len', ['min' =>3 ])->notAllowsEmpty('Empty firstname!')->notNullable();
         $this->validator->attribute('lastName')->rule('string')->notAllowsEmpty('Empty firstname!')->notNullable();
         $this->validator->attribute('age')->rule('integer')->nullable();
         $this->validator->attribute('email')->rule('email')->notNullable()->notAllowsEmpty('Empty email!');
@@ -105,4 +116,36 @@ class CreateUserValidation implements MiddlewareInterface
     }
 }
 
+```
+
+<br>
+
+## More customization
+
+###### With custom params and formatted message
+```php
+#[Rule('max-len', 'Attribute length larger :max')]
+public function maxLength(mixed $value, int $max): bool
+{
+    if ($max <= 0) {
+        throw new \InvalidArgumentException('Max cannot be less than or equal to zero');
+    }
+
+    return strlen($value) <= $max;
+}
+```
+```php
+//...
+// Validation middleware
+$this->validator->attribute('my-attribute')->rule('max-len', ['max' => 5]);
+```
+
+
+###### With access to all data:
+```php
+#[Rule('custom', 'Attribute :attribute is empty')]
+public function myEmptyRule(mixed $value, string $attribute, array $source): bool
+{
+    return \array_key_exists($attribute, $source);
+}
 ```
