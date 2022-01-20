@@ -14,7 +14,7 @@ use Nyxio\Routing\Attribute\RouteGroup;
     uri: '/user/@userId/order/@orderHash',
     rules: [
         'userId' => 'integer',
-        'orderHash' => ['string', 'app.orderHashValidation'],
+        'orderHash' => ['string', 'app.orderHashValidation' => ['my-param' => true],
     ]
 )]
 #[RouteGroup('api')]
