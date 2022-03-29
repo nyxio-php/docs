@@ -37,7 +37,8 @@ use Psr\Http\Message\ResponseInterface;
 #[RouteGroup('api')]
 class CreateUser 
 {
-    public function __construct(private readonly CreateUserService $createUser) {
+    public function __construct(private readonly CreateUserService $createUser) 
+    {
     }
     
     public function handle(Http\Request $request, Http\Response $response): ResponseInterface
