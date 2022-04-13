@@ -14,10 +14,10 @@ composer create-project nyxio/app example-app
 cd example-app
 ```
 
-3. Run [workerman](https://github.com/walkor/workerman) server:
+3. Run HTTP server:
 
 ```shell
-php server.php start
+php server.php
 ```
 
 4. Open http://localhost:8080/api/hello
