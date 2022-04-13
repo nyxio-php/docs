@@ -5,6 +5,7 @@
 - PHP **8.1** or *higher*
 - [composer](https://getcomposer.org/)
 - [ext-mbstring](https://www.php.net/manual/en/book.mbstring.php)
+- [ext-swoole](https://www.php.net/manual/en/book.swoole.php)
 
 <br>
 
