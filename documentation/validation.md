@@ -31,7 +31,7 @@ class CreateUserValidation implements MiddlewareInterface
 
     public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
     {
-        $this->validator->attribute('firstName')->rule('string')->rule('min-len', ['min' =>3 ])->notAllowsEmpty('Empty firstname!')->notNullable();
+        $this->validator->attribute('firstName')->rule('string')->rule('min-len', ['min' => 3])->notAllowsEmpty('Empty firstname!')->notNullable();
         $this->validator->attribute('lastName')->rule('string')->notAllowsEmpty('Empty firstname!')->notNullable();
         $this->validator->attribute('age')->rule('integer')->nullable()->required();
         $this->validator->attribute('contacts.email')->rule('email')->notNullable()->notAllowsEmpty('Empty email!');
