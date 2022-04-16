@@ -4,13 +4,13 @@
 
 - PHP **8.1** or *higher*
 - [composer](https://getcomposer.org/)
-- [ext-mbstring](https://www.php.net/manual/en/book.mbstring.php)
 - [ext-openswoole](https://openswoole.com/)
+- [ext-mbstring](https://www.php.net/manual/en/book.mbstring.php)
 
 <br>
 
 #### Current restrictions
-- By default you cannot get files from request. You can extend `Nyxio\Http\Request` and `Nyxio\Http\Factory\RequestFactory` (extend or implement PSR-17 `ServerRequestFacotryInterface`) and implement your functionality. See [Providers](documentation/providers.md) for register your implementation of `Nyxio\Http\Factory\RequestFactory` in container)
+- You cannot get files from request, and send files to response. 
 
 <br>
 
