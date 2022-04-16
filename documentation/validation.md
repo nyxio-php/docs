@@ -42,10 +42,10 @@ class CreateUserValidation implements MiddlewareInterface
 
     public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
     {
-        $this->validator->attribute('firstName')->rule(Rule::String)->rule(Rule::MinLength, ['min' => 3])->notAllowsEmpty('Empty firstname!')->notNullable();
-        $this->validator->attribute('lastName')->rule(Rule::String)->notAllowsEmpty('Empty firstname!')->notNullable();
-        $this->validator->attribute('age')->rule(Rule::Integer)->nullable()->required();
-        $this->validator->attribute('contacts.email')->rule(Rule::Email)->notNullable()->notAllowsEmpty('Empty email!');
+        $this->validator->field('firstName')->rule(Rule::String)->rule(Rule::MinLength, ['min' => 3])->notAllowsEmpty('Empty firstname!')->notNullable();
+        $this->validator->field('lastName')->rule(Rule::String)->notAllowsEmpty('Empty firstname!')->notNullable();
+        $this->validator->field('age')->rule(Rule::Integer)->nullable()->required();
+        $this->validator->field('contacts.email')->rule(Rule::Email)->notNullable()->notAllowsEmpty('Empty email!');
 
         $this->validator->validateOrException($request->post()); // or  $this->validator->getErrors($request->post());
         
@@ -119,7 +119,7 @@ class CreateUserValidation implements MiddlewareInterface
     public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
     {
         //...
-        $this->validator->attribute('user_id')->rule('integer')->rule('app.my-custom-rule');
+        $this->validator->field('user_id')->rule('integer')->rule('app.my-custom-rule');
         
         $this->validator->validateOrException($request->post());
         
@@ -135,7 +135,7 @@ class CreateUserValidation implements MiddlewareInterface
 
 ###### With custom params and formatted message
 ```php
-#[Rule('max-len', 'Attribute length larger :max')]
+#[Rule('max-len', 'Field length larger :max')]
 public function maxLength(mixed $value, int $max): bool
 {
     if ($max <= 0) {
@@ -148,15 +148,15 @@ public function maxLength(mixed $value, int $max): bool
 ```php
 //...
 // Validation middleware
-$this->validator->attribute('my-attribute')->rule('max-len', ['max' => 5]);
+$this->validator->field('my-field')->rule('max-len', ['max' => 5]);
 ```
 
 
 ###### With access to all data:
 ```php
-#[Rule('custom', 'Attribute :attribute is empty')]
-public function myEmptyRule(mixed $value, string $attribute, array $source): bool
+#[Rule('custom', 'Field :field is empty')]
+public function myEmptyRule(mixed $value, string $field, array $source): bool
 {
-    return \array_key_exists($attribute, $source);
+    return \array_key_exists($field, $source);
 }
 ```
