@@ -12,6 +12,7 @@
 - `min-len` with param `min`
 - `max` with param `max` (only for numeric)
 - `min` with param `min` (only for numeric)
+- `enum`
 
 Also you can use [`Nyxio\Contract\Validation\Rule`](https://github.com/nyxio-php/nyxio/blob/main/src/Contract/Validation/Rule.php) enum.
 Example:
