@@ -11,7 +11,7 @@
 - `max-len` with param `max`
 - `min-len` with param `min`
 
-Also you can User Nyxio\Contract\Validation\Rule enum.
+Also you can use `Nyxio\Contract\Validation\Rule` enum.
 Example:
 - `Nyxio\Contract\Validation\Rule::Integer`
 - `Nyxio\Contract\Validation\Rule::String`
