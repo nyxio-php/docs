@@ -15,7 +15,7 @@
 <br>
 
 [Getting started](documentation/getting-started.md) – first step to up your application
-<br>[Configuration](documentation/configuration.md) – install and configure
+<br>[Configuration](documentation/configuration.md) – install and configure (TBD)
 
 ## Http
 
