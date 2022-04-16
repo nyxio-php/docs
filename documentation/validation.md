@@ -29,6 +29,7 @@ use Nyxio\Contract\Validation\Handler\ValidatorCollectionInterface;
 use Nyxio\Http\Request;
 use Nyxio\Http\Response;
 use Psr\Http\Message\ResponseInterface;
+use Nyxio\Contract\Validation\Rule;
 
 class CreateUserValidation implements MiddlewareInterface
 {
@@ -38,10 +39,10 @@ class CreateUserValidation implements MiddlewareInterface
 
     public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
     {
-        $this->validator->attribute('firstName')->rule('string')->rule('min-len', ['min' => 3])->notAllowsEmpty('Empty firstname!')->notNullable();
-        $this->validator->attribute('lastName')->rule('string')->notAllowsEmpty('Empty firstname!')->notNullable();
-        $this->validator->attribute('age')->rule('integer')->nullable()->required();
-        $this->validator->attribute('contacts.email')->rule('email')->notNullable()->notAllowsEmpty('Empty email!');
+        $this->validator->attribute('firstName')->rule(Rule::String)->rule(Rule::MinLength, ['min' => 3])->notAllowsEmpty('Empty firstname!')->notNullable();
+        $this->validator->attribute('lastName')->rule(Rule::String)->notAllowsEmpty('Empty firstname!')->notNullable();
+        $this->validator->attribute('age')->rule(Rule::Integer)->nullable()->required();
+        $this->validator->attribute('contacts.email')->rule(Rule::Email)->notNullable()->notAllowsEmpty('Empty email!');
 
         $this->validator->validateOrException($request->post()); // or  $this->validator->getErrors($request->post());
         
