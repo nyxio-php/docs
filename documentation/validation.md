@@ -11,6 +11,13 @@
 - `max-len` with param `max`
 - `min-len` with param `min`
 
+Also you can User Nyxio\Contract\Validation\Rule enum.
+Example:
+- `Nyxio\Contract\Validation\Rule::Integer`
+- `Nyxio\Contract\Validation\Rule::String`
+- ...
+
+
 ###### Example:
 ```php
 <?php
