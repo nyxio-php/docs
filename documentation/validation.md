@@ -108,7 +108,7 @@ class CreateUserValidation implements MiddlewareInterface
     public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
     {
         //...
-        $this->validator->attribute('user_id')->rule('integer')->rule('app:my-custom-rule');
+        $this->validator->attribute('user_id')->rule('integer')->rule('app.my-custom-rule');
         
         $this->validator->validateOrException($request->post());
         
