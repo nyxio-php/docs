@@ -29,7 +29,9 @@ Example:
 ```php
 $validator->field('age')->isInteger();
 $validator->field('name')->isString();
-$validator->field('weight')->isFloat(message: 'Weight is not float...')->rule(Rule::Between, ['from' => 10, 'to' => 400]);
+$validator->field('weight')
+    ->isFloat(message: 'Weight is not float...')
+    ->rule(Rule::Between, ['from' => 10, 'to' => 400]);
 ```
 
 
@@ -56,12 +58,22 @@ class CreateUserValidation implements MiddlewareInterface
 
     public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
     {
-        $this->validator->field('firstName')->isString()->rule(Rule::MinLength, ['min' => 3])->notAllowsEmpty(message: 'Empty firstname!')->notNullable();
-        $this->validator->field('lastName')->isString()->notAllowsEmpty(message: 'Empty firstname!')->notNullable();
+        $this->validator->field('firstName')
+            ->isString()
+            ->rule(Rule::MinLength, ['min' => 3])
+            ->notAllowsEmpty(message: 'Empty firstname!')
+            ->notNullable();
+        $this->validator->field('lastName')
+            ->isString()
+            ->notAllowsEmpty(message: 'Empty firstname!')
+            ->notNullable();
         $this->validator->field('age')->isInteger()->nullable()->required();
-        $this->validator->field('contacts.email')->isEmail()->notNullable()->notAllowsEmpty(message: 'Empty email!');
+        $this->validator->field('contacts.email')
+            ->isEmail()
+            ->notNullable()
+            ->notAllowsEmpty(message: 'Empty email!');
 
-        $this->validator->validateOrException($request->post()); // or  $this->validator->getErrors($request->post());
+        $this->validator->validateOrException($request->post()); // or $this->validator->getErrors($request->post());
         
         return $next();
     }
