@@ -5,9 +5,9 @@
 - `min-len` with param `min`
 - `max` with param `max` (only for numeric)
 - `min` with param `min` (only for numeric)
+- `between` (only for numeric)
 - `enum`
 - `exclude`
-- `between` (only for numeric)
 - `equal`
 - `not-equal`
 

@@ -6,6 +6,7 @@
 <?php
 
 use Nyxio\Contract\Http\Method;
+use Nyxio\Contract\Validation\Rule;
 use Nyxio\Routing\Attribute\Route;
 use Nyxio\Routing\Attribute\RouteGroup;
 
@@ -13,8 +14,8 @@ use Nyxio\Routing\Attribute\RouteGroup;
     method: Method.GET,
     uri: '/user/@userId/order/@orderHash',
     rules: [
-        'userId' => 'integer',
-        'orderHash' => ['string', 'app.orderHashValidation' => ['my-param' => true],
+        'userId' => Rule::Integer,
+        'orderHash' => [Rule::String, 'app.orderHashValidation' => ['my-param' => true],
     ]
 )]
 #[RouteGroup('api')]
