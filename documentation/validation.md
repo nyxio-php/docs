@@ -6,6 +6,7 @@
 - `max` with param `max` (only for numeric)
 - `min` with param `min` (only for numeric)
 - `enum`
+- `exclude`
 - `between` (only for numeric)
 - `equal`
 - `not-equal`
@@ -23,6 +24,7 @@ Example:
 - `isFloat`
 - `isBool`
 - `isEmail`
+- `isUrl`
 - `isArray`
 
 ###### Example:
