@@ -1,13 +1,6 @@
 # Validation
 
 ## Default rules
-- `string`
-- `integer`
-- `numeric`
-- `float`
-- `bool`
-- `array`
-- `email`
 - `max-len` with param `max`
 - `min-len` with param `min`
 - `max` with param `max` (only for numeric)
@@ -17,13 +10,31 @@
 - `equal`
 - `not-equal`
 
-Also you can use [`Nyxio\Contract\Validation\Rule`](https://github.com/nyxio-php/nyxio/blob/main/src/Contract/Validation/Rule.php) enum.
+<br>Also you can use [`Nyxio\Contract\Validation\Rule`](https://github.com/nyxio-php/nyxio/blob/main/src/Contract/Validation/Rule.php) enum.
 Example:
-- `Nyxio\Contract\Validation\Rule::Integer`
-- `Nyxio\Contract\Validation\Rule::String`
-- ...
+- `Rule::MaxLength`
+- `Rule::Enum`
+- and others.
+
+## Validation by type
+- `isString`
+- `isNimeric`
+- `isInteger`
+- `isFloat`
+- `isBool`
+- `isEmail`
+- `isArray`
+
+###### Example:
+```php
+$validator->field('age')->isInteger();
+$validator->field('name')->isString();
+$validator->field('weight')->isFloat('Weight is not float...')->rule(Rule::Between, ['from' => 10, 'to' => 400]);
+```
 
 
+
+## Validator
 ###### Example:
 ```php
 <?php
@@ -45,10 +56,10 @@ class CreateUserValidation implements MiddlewareInterface
 
     public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
     {
-        $this->validator->field('firstName')->rule(Rule::String)->rule(Rule::MinLength, ['min' => 3])->notAllowsEmpty('Empty firstname!')->notNullable();
-        $this->validator->field('lastName')->rule(Rule::String)->notAllowsEmpty('Empty firstname!')->notNullable();
-        $this->validator->field('age')->rule(Rule::Integer)->nullable()->required();
-        $this->validator->field('contacts.email')->rule(Rule::Email)->notNullable()->notAllowsEmpty('Empty email!');
+        $this->validator->field('firstName')->isString()->rule(Rule::MinLength, ['min' => 3])->notAllowsEmpty('Empty firstname!')->notNullable();
+        $this->validator->field('lastName')->isString()->notAllowsEmpty('Empty firstname!')->notNullable();
+        $this->validator->field('age')->isInteger()->nullable()->required();
+        $this->validator->field('contacts.email')->isEmail()->notNullable()->notAllowsEmpty('Empty email!');
 
         $this->validator->validateOrException($request->post()); // or  $this->validator->getErrors($request->post());
         
@@ -122,7 +133,7 @@ class CreateUserValidation implements MiddlewareInterface
     public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
     {
         //...
-        $this->validator->field('user_id')->rule('integer')->rule('app.my-custom-rule');
+        $this->validator->field('user_id')->isInteger()->rule('app.my-custom-rule');
         
         $this->validator->validateOrException($request->post());
         
