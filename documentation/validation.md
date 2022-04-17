@@ -6,10 +6,11 @@
 - `max` with param `max` (only for numeric)
 - `min` with param `min` (only for numeric)
 - `between` (only for numeric)
-- `enum`
-- `exclude`
-- `equal`
-- `not-equal`
+- `enum` with params `enum`, `strict` (default `true`)
+- `exclude` with params `enum`, `strict` (default `true`)
+- `equal` with params `equal`, `strict` (default `true`), `caseSensitive` (default `true`)
+- `not-equal` with params `equal`, `strict` (default `true`), `caseSensitive` (default `true`)
+- `regex` with param `pattern`
 
 <br>Also you can use [`Nyxio\Contract\Validation\Rule`](https://github.com/nyxio-php/nyxio/blob/main/src/Contract/Validation/Rule.php) enum.
 Example:
