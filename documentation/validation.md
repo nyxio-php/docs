@@ -19,7 +19,7 @@ Example:
 
 ## Validation by type
 - `isString`
-- `isNimeric`
+- `isNumeric`
 - `isInteger`
 - `isFloat`
 - `isBool`
