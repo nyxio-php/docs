@@ -11,6 +11,9 @@
 - `equal` with params `equal`, `strict` (default `true`), `caseSensitive` (default `true`)
 - `not-equal` with params `equal`, `strict` (default `true`), `caseSensitive` (default `true`)
 - `regex` with param `pattern`
+- `date` with param `format` (default `Y-m-d`)
+- `date-time` with param `format` (default `Y-m-d H:i:s`)
+- `time` with param `format` (default `H:i:s`)
 
 <br>Also you can use [`Nyxio\Contract\Validation\Rule`](https://github.com/nyxio-php/nyxio/blob/main/src/Contract/Validation/Rule.php) enum.
 Example:
