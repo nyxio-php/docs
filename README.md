@@ -1,5 +1,8 @@
 # nyxio documentation
 
+## nyxio
+<br>nyxio – microframework for development microservices. Using (Open Swoole)[https://openswoole.com/] for async server.
+
 #### Requirements
 
 - PHP **8.1** or *higher*
