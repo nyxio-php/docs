@@ -66,11 +66,11 @@ $validation->field('password')
 declare(strict_types=1);
 
 use Nyxio\Contract\Http\MiddlewareInterface;
-use Nyxio\Contract\Validation\Handler\ValidationInterface;
+use Nyxio\Contract\Validation\ValidationInterface;
+use Nyxio\Contract\Validation\Rule;
 use Nyxio\Http\Request;
 use Nyxio\Http\Response;
 use Psr\Http\Message\ResponseInterface;
-use Nyxio\Contract\Validation\Rule;
 
 class CreateUserValidation implements MiddlewareInterface
 {
@@ -154,7 +154,7 @@ class AppProvider implements ProviderInterface
 declare(strict_types=1);
 
 use Nyxio\Contract\Http\MiddlewareInterface;
-use Nyxio\Contract\Validation\Handler\ValidationInterface;
+use Nyxio\Contract\Validation\ValidationInterface;
 use Nyxio\Http\Request;
 use Nyxio\Http\Response;
 use Psr\Http\Message\ResponseInterface;
