@@ -1,16 +1,31 @@
 All configuration files are `config` path.
 
-#### app.php
-TBD
+### app.php
 
-#### http.php
-TBD
+| Option      | Description                                                                            | Type      | Default         |
+|-------------|:---------------------------------------------------------------------------------------|:----------|-----------------|
+| `env`       | Environment variable. You can use it for different behavior in different environments. | `string`  | `local`         |
+| `debug`     | Used for detailed exceptions messages.                                                 | `boolean` | `false`         |
+| `timezone`  | Sets the local time zone                                                               | `string`  | `UTC`           |
+| `lang`      | Language config name                                                                   | `string`  | `en`            |
+| `providers` | List of [Providers](providers.md)                                                      | `array`   | see description |
 
-#### server.php
-TBD
+### http.php
 
+
+| Option    | Description                                                          | Type    | Default         |
+|-----------|:---------------------------------------------------------------------|:--------|-----------------|
+| `actions` | Used for registration yours [Actions](actions.md)                    | `array` | showcase action |
+| `groups`  | Used for registration yours actions groups                           | `array` | showcase group  |
+
+### server.php
+
+| Option    | Description                                                                                                                      | Type      | Default     |
+|-----------|:---------------------------------------------------------------------------------------------------------------------------------|:----------|-------------|
+| `host`    | Server host                                                                                                                      | `string`  | `127.0.0.1` |
+| `port`    | Server port                                                                                                                      | `integer` | `9501`      |
+| `options` | Extra options for OpenSwoole server ([see OpenSwoole documentation](https://openswoole.com/docs/modules/swoole-http-server-doc)) | `array`   | -           |
 #### `lang` path
-TBD
 
-#### `.env` file
-TBD
+Place in this path your files with application messages.
+
