@@ -33,4 +33,4 @@
 [Container](documentation/container.md) – Dependency Injection
 <br>[Providers](documentation/providers.md) – Bootstrap application, setup container singletons and binds, and other things
 
-<br>Translate – TBD
+<br>[Translate](documentation/language.md) – Application messages
