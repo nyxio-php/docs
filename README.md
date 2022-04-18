@@ -1,7 +1,7 @@
 # nyxio documentation
 
 ## nyxio
-<br>nyxio – microframework for development microservices. Using (Open Swoole)[https://openswoole.com/] for async server.
+<br>nyxio – microframework for development microservices. Using [Open Swoole](https://openswoole.com/) for async server.
 
 #### Requirements
 
