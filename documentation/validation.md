@@ -37,9 +37,9 @@
 
 ###### Example:
 ```php
-$validator->field('age')->isInteger();
-$validator->field('name')->isString();
-$validator->field('weight')
+$validation->field('age')->isInteger();
+$validation->field('name')->isString();
+$validation->field('weight')
     ->isFloat(message: 'Weight is not float...')
     ->rule(Rule::Between, ['from' => 10, 'to' => 400]);
 ```
@@ -48,7 +48,7 @@ $validator->field('weight')
 ###### Example:
 
 ```php
-$validator->field('password')
+$validation->field('password')
     ->custom(
         static function (mixed $value): bool {
             return $value !== 'qwerty'; // true - valid, false - invalid
@@ -58,7 +58,7 @@ $validator->field('password')
 ```
 
 
-## Validator
+## Validation
 ###### Example:
 ```php
 <?php
@@ -66,7 +66,7 @@ $validator->field('password')
 declare(strict_types=1);
 
 use Nyxio\Contract\Http\MiddlewareInterface;
-use Nyxio\Contract\Validation\Handler\ValidatorCollectionInterface;
+use Nyxio\Contract\Validation\Handler\ValidationInterface;
 use Nyxio\Http\Request;
 use Nyxio\Http\Response;
 use Psr\Http\Message\ResponseInterface;
@@ -74,28 +74,28 @@ use Nyxio\Contract\Validation\Rule;
 
 class CreateUserValidation implements MiddlewareInterface
 {
-    public function __construct(private readonly ValidatorCollectionInterface $validator)
+    public function __construct(private readonly ValidationInterface $validation)
     {
     }
 
     public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
     {
-        $this->validator->field('firstName')
+        $this->validation->field('firstName')
             ->isString()
             ->rule(Rule::MinLength, ['min' => 3])
             ->notAllowsEmpty(message: 'Empty firstname!')
             ->notNullable();
-        $this->validator->field('lastName')
+        $this->validation->field('lastName')
             ->isString()
             ->notAllowsEmpty(message: 'Empty firstname!')
             ->notNullable();
-        $this->validator->field('age')->isInteger()->nullable()->required();
-        $this->validator->field('contacts.email')
+        $this->validation->field('age')->isInteger()->nullable()->required();
+        $this->validation->field('contacts.email')
             ->isEmail()
             ->notNullable()
             ->notAllowsEmpty(message: 'Empty email!');
 
-        $this->validator->validateOrException($request->post()); // or $this->validator->getErrors($request->post());
+        $this->validation->validateOrException($request->post()); // or $this->validation->getErrors($request->post());
         
         return $next();
     }
@@ -105,7 +105,7 @@ class CreateUserValidation implements MiddlewareInterface
 <br>
 
 
-## Register custom rules for validator
+## Register custom rules for validation
 1. Create class with rules:
 ```php
 <?php
@@ -147,29 +147,30 @@ class AppProvider implements ProviderInterface
 }
 ```
 3. Use:
+
 ```php
 <?php
 
 declare(strict_types=1);
 
 use Nyxio\Contract\Http\MiddlewareInterface;
-use Nyxio\Contract\Validation\Handler\ValidatorCollectionInterface;
+use Nyxio\Contract\Validation\Handler\ValidationInterface;
 use Nyxio\Http\Request;
 use Nyxio\Http\Response;
 use Psr\Http\Message\ResponseInterface;
 
 class CreateUserValidation implements MiddlewareInterface
 {
-    public function __construct(private readonly ValidatorCollectionInterface $validator)
+    public function __construct(private readonly ValidationInterface $validation)
     {
     }
 
     public function handle(Request $request, Response $response, \Closure $next): ResponseInterface
     {
         //...
-        $this->validator->field('user_id')->isInteger()->rule('app.my-custom-rule');
+        $this->validation->field('user_id')->isInteger()->rule('app.my-custom-rule');
         
-        $this->validator->validateOrException($request->post());
+        $this->validation->validateOrException($request->post());
         
         return $next();
     }
@@ -196,7 +197,7 @@ public function maxLength(mixed $value, int $max): bool
 ```php
 //...
 // Validation middleware
-$this->validator->field('my-field')->rule('max-len', ['max' => 5]);
+$this->validation->field('my-field')->rule('max-len', ['max' => 5]);
 ```
 
 
