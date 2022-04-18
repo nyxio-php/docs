@@ -11,12 +11,13 @@
 - `equal` with params `equal`, `strict` (default `true`), `caseSensitive` (default `true`)
 - `not-equal` with params `equal`, `strict` (default `true`), `caseSensitive` (default `true`)
 - `regex` with param `pattern`
+- `date-time` with param `format` (default `Y-m-d\TH:i:sP`)
 - `date` with param `format` (default `Y-m-d`)
-- `date-time` with param `format` (default `Y-m-d H:i:s`)
-- `time` with param `format` (default `H:i:s`)
+- `time` with param `format` (default `\TH:i:sP`)
 
 <br>Also you can use [`Nyxio\Contract\Validation\Rule`](https://github.com/nyxio-php/nyxio/blob/main/src/Contract/Validation/Rule.php) enum.
-Example:
+
+###### Example:
 - `Rule::MaxLength`
 - `Rule::Enum`
 - and others.
@@ -30,6 +31,9 @@ Example:
 - `isEmail`
 - `isUrl`
 - `isArray`
+- `isDateTime` with param `format` (default `Y-m-d\TH:i:sP`)
+- `isDate` with param `format` (default `Y-m-d`)
+- `isTime` with param `format` (default `\TH:i:sP`)
 
 ###### Example:
 ```php
@@ -40,6 +44,18 @@ $validator->field('weight')
     ->rule(Rule::Between, ['from' => 10, 'to' => 400]);
 ```
 
+## Custom rules
+###### Example:
+
+```php
+$validator->field('password')
+    ->custom(
+        static function (mixed $value): bool {
+            return $value !== 'qwerty'; // true - valid, false - invalid
+        }, 
+        '"qwerty" – it\'s a bad idea for password :c'
+    );
+```
 
 
 ## Validator
