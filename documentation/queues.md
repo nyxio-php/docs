@@ -48,20 +48,23 @@ class CreateUserService
     public function create(string $firstName, string $lastName): void
     {
         $user = new User($firstName, $lastName);
-        if ($user->save()) {
-            $this->queue->push(
-                job: SendNotificationJob::class,
-                [
-                    'user' => $user,
-                    'notificationType' => 'user.created',
-                ],
-                options: new Queue\Options(
-                    retryCount: 5, // retry count
-                    retryDelay: 5000, // retry after 5 sec, if was an exception
-                    delay: 1000, // perform after 1 sec after push
-                ),
-            );   
+        
+        if (!$user->save()) {  
+            throw new \Exception('Error');
         }
+        
+         $this->queue->push(
+            job: SendNotificationJob::class,
+            data: [
+                'user' => $user,
+                'notificationType' => 'user.created',
+            ],
+            options: new Queue\Options(
+                retryCount: 5, // retry count
+                retryDelay: 5000, // retry after 5 sec, if was an exception
+                delay: 1000, // perform after 1 sec after push
+            ),
+        ); 
     }
 }
 ```
