@@ -1,6 +1,6 @@
 # Queues
 
-###### Example Job 1:
+###### `Job` example:
 
 ```php
 <?php
@@ -72,10 +72,10 @@ class CreateUserService
 ###### Example of use:
 ```php
 // Without data and options
-$this->queue->push(job: MyJobName::class);
+$this->queue->push(jMyJobName::class);
 
 // With data, without options
-$this->queue->push(job: MyJobName::class, data: ['my-param' => 'value']);
+$this->queue->push(MyJobName::class, ['my-param' => 'value']);
 
 // All
 $this->queue->push(
