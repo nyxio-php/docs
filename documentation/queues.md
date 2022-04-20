@@ -1,5 +1,7 @@
 # Queues
 
+> All jobs (including [Cron](cron.md) jobs) dispatch **asynchronously** via workers. If ALL workers are busy, system tries dispatch job again.
+
 ###### `Job` example:
 
 ```php
