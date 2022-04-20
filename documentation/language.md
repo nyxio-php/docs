@@ -1,6 +1,6 @@
 # Language
 
-<br>All language configuration files are in `config/lang` path.
+> All language configuration files are in `config/lang` path.
 
 #### Example file:
 
