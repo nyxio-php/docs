@@ -8,9 +8,23 @@ Events are powerful tools for handling application (and framework!) events.
 <br>And many more cases for using `Events` in your app.
 
 1. Create `Event` class:
-code example
+
+```php
+<?php
+
+```
+
 2. Attach listeners, who will handle this `Event`
-code example
+
+```php
+<?php
+
+```
+
 3. Trigger your `Event` using the `EventDispetcherInterface`
-code example
+
+```php
+<?php
+
+```
 
