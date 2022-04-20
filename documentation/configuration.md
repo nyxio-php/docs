@@ -1,6 +1,6 @@
 # Configuration
 
-<br>All configuration files are in `config` path.
+> All configuration files are in `config` path.
 
 ### app.php
 
