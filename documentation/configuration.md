@@ -17,8 +17,8 @@
 
 | Option    | Description                                                          | Type    | Default         |
 |-----------|:---------------------------------------------------------------------|:--------|-----------------|
-| `actions` | Used for registration yours [Actions](actions.md)                    | `array` | showcase action |
-| `groups`  | Used for registration yours actions groups                           | `array` | showcase group  |
+| `actions` | Used for registration your [Actions](actions.md)                     | `array` | showcase action |
+| `groups`  | Used for registration your actions groups                            | `array` | showcase group  |
 
 
 ### cron.php
@@ -26,7 +26,7 @@
 
 | Option    | Description                                                          | Type    | Default         |
 |-----------|:---------------------------------------------------------------------|:--------|-----------------|
-| `jobs` | Used for registration yours [Cron](cron.md) jobs                        | `array` | []              |
+| `jobs` | Used for registration your [Cron](cron.md) jobs                        | `array` | []              |
 
 ### server.php
 
