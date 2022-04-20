@@ -12,6 +12,20 @@ Events are powerful tools for handling application (and framework!) events.
 ```php
 <?php
 
+declare(strict_types=1);
+
+use Nyxio\Event\Event;
+
+
+class UserCreatedEvent extends Event
+{
+    public const NAME = 'app.user.created';
+    
+    public function __construct(public readonly User $user)
+    {
+    }
+}
+
 ```
 
 2. Attach listeners, who will handle this `Event`
@@ -19,12 +33,56 @@ Events are powerful tools for handling application (and framework!) events.
 ```php
 <?php
 
+declare(strict_types=1);
+
+namespace App\Provider;
+
+use Nyxio\Contract\Event\EventDispatcherInterface;
+use Nyxio\Contract\Provider\ProviderInterface;
+
+class AppProvider implements ProviderInterface
+{
+    public function __construct(private readonly EventDispatcherInterface $eventDispatcher)
+    {
+    }
+    
+    public function handle(): void
+    {
+        $this->eventDispatcher->addListener(UserCreatedEvent::NAME, function (UserCreatedEvent $event) {
+            // send notification
+            // save logs
+        });
+    }
+}
+
 ```
 
 3. Trigger your `Event` using the `EventDispetcherInterface`
 
 ```php
 <?php
+
+declare(strict_types=1);
+
+use Nyxio\Contract\Event\EventDispatcherInterface;
+
+class UserCreateService
+{
+    public function __construct(private readonly EventDispatcherInterface $eventDispatcher)
+    {
+    }
+    
+    public function create(string $name, string $email, string $password): User
+    {
+        $user = new User($name, $email, $password);
+        $user->create();
+        
+        $this->eventDispatcher->dispatch(UserCreatedEvent::NAME, new UserCreatedEvent($user));
+        
+        return $user;
+    }
+}
+
 
 ```
 
