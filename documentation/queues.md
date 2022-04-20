@@ -72,7 +72,7 @@ class CreateUserService
 ###### Example of use:
 ```php
 // Without data and options
-$this->queue->push(jMyJobName::class);
+$this->queue->push(MyJobName::class);
 
 // With data, without options
 $this->queue->push(MyJobName::class, ['my-param' => 'value']);
