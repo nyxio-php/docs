@@ -11,6 +11,8 @@ You can require dependencies in your class constructor method:
 ```php
 <?php
 
+declare(strict_types=1);
+
 class MyService {
     public function __construct(private readonly AnotherService $another) {
     }
@@ -63,6 +65,8 @@ And of course, you can resolve dependency in methods.
 ###### Example:
 ```php
 <?php 
+
+declare(strict_types=1);
 
 $container = new Container();
 
