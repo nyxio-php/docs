@@ -38,3 +38,4 @@
 <br>[Translate](documentation/language.md) – Application messages
 <br>[Events](documentation/events.md) – Framework and application events
 <br>[Queues](documentation/queues.md) – Jobs queues
+<br>[Queues](documentation/cron.md) – Cron jobs
