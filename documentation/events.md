@@ -7,6 +7,8 @@ Events are powerful tools for handling application (and framework!) events.
 <br>User make an order? Do the same. 
 <br>And many more cases for using `Events` in your app.
 
+###### Exampme of use:
+
 1. Create `Event` class:
 
 ```php
