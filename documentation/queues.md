@@ -2,6 +2,9 @@
 
 > All jobs (including [Cron](cron.md) jobs) dispatch **asynchronously** via workers. If ALL workers are busy, system tries dispatch job again.
 
+> When Job dispatch stopped due to error, system call will Event `kernel.job.error` (and `kernel.cron.error`, if it cron job)
+
+
 ###### `Job` example:
 
 ```php
