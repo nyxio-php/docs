@@ -88,12 +88,20 @@ class UserCreateService
 
 ```
 
-### Event
+### Create `Event`
 > All Events clasees must extended the [Event](https://github.com/nyxio-php/event/blob/main/Event.php) class and change value of public constant `NAME` to the name of your event.
 > You can bind your Event data in class constructor or use getters and setters.
 
 <br>Parent `Event` class have method `stopPropagation`, which can be called in listeners and stop further dispatching this event.
 
-### Listener
+### Listen
 `EventDispatcherInterface::addListener(string $eventName, \Closure|array $listener)`
-### Dispatcher
+
+You can add a closure that will be called when the event is triggered.
+
+### Dispatch
+[`EventDispatcherInterface`](https://github.com/nyxio-php/contract/blob/main/Event/EventDispatcherInterface.php)
+
+<br>`EventDispatcherInterface::dispatch(string $eventName, ?Event $event = null): static;`
+
+
