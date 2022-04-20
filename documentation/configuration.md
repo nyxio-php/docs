@@ -20,6 +20,14 @@
 | `actions` | Used for registration yours [Actions](actions.md)                    | `array` | showcase action |
 | `groups`  | Used for registration yours actions groups                           | `array` | showcase group  |
 
+
+### cron.php
+
+
+| Option    | Description                                                          | Type    | Default         |
+|-----------|:---------------------------------------------------------------------|:--------|-----------------|
+| `jobs` | Used for registration yours [Cron](cron.md) jobs                        | `array` | []              |
+
 ### server.php
 
 | Option    | Description                                                                                                                      | Type      | Default     |
