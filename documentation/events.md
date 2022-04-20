@@ -95,13 +95,15 @@ class UserCreateService
 <br>Parent `Event` class have method `stopPropagation`, which can be called in listeners and stop further dispatching this event.
 
 ### Listen
-`EventDispatcherInterface::addListener(string $eventName, \Closure|array $listener)`
+[`EventDispatcherInterface`](https://github.com/nyxio-php/contract/blob/main/Event/EventDispatcherInterface.php)
+
+<br>`addListener(string $eventName, \Closure|array $listener)`
 
 You can add a closure that will be called when the event is triggered.
 
 ### Dispatch
 [`EventDispatcherInterface`](https://github.com/nyxio-php/contract/blob/main/Event/EventDispatcherInterface.php)
 
-<br>`EventDispatcherInterface::dispatch(string $eventName, ?Event $event = null): static;`
+<br>`dispatch(string $eventName, ?Event $event = null)`
 
 
