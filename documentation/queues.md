@@ -87,4 +87,17 @@ $this->queue->push(
         delay: 1000, // perform after 1 sec after push
     )
 );
+
+$this->queue->push(
+    job: MyJobName::class, 
+    data: ['my-param' => 'value'], 
+    options: new Queue\Options(
+        retryCount: 5, // retry count
+        retryDelay: 5000, // retry after 5 sec, if was an exception
+        delay: 1000, // perform after 1 sec after push
+    ),
+    finishCallback: static function () {
+        echo 'My job is done!' . \PHP_EOL;
+    },
+);
 ```
