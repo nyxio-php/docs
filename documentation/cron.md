@@ -24,7 +24,7 @@ class MyCronJob implements CronInterface
 2. Add job to [cron.php](configuration.md#cronphp) config.
 
 <br>Affter start the server, if cron job has been success registred, terminal output the message about this:
-`Cron job App\Job\Cron\MyCronJob is registered | */1 * * * *`
+<br>`Cron job App\Job\Cron\MyCronJob is registered | */1 * * * *`
 
 
 # Events
