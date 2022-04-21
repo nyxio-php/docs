@@ -7,6 +7,8 @@
 
 declare(strict_types=1);
 
+namespace App\Job;
+
 use Nyxio\Contract\Kernel\Server\CronInterface;
 use Nyxio\Kernel\Server\Cron\Attribute\Cron;
 
@@ -23,8 +25,8 @@ class MyCronJob implements CronInterface
 
 2. Add job to [cron.php](configuration.md#cronphp) config.
 
-<br>Affter start the server, if cron job has been success registred, terminal output the message about this:
-<br>`Cron job App\Job\Cron\MyCronJob is registered | */1 * * * *`
+<br>Affter start the server and cron job has been success registred, terminal output the message about this:
+```Cron job App\Job\Cron\MyCronJob is registered | */1 * * * *````
 
 
 # Events
