@@ -96,3 +96,11 @@ $this->queue->push(
     },
 );
 ```
+
+
+# Events
+
+| Trigger              | Event Name                                   | Event Class                        |
+|----------------------|:---------------------------------------------|:-----------------------------------|
+| Job complete         | kernel.job.completed                         | `\Nyxio\Kernel\Event\JobCompleted` |
+| Job throw exception  | kernel.job.error                             | `\Nyxio\Kernel\Event\JobError`     |
