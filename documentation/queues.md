@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace App\Jobs;
+namespace App\Job;
 
 use App\Services\NotificationCenter;
 use App\Entity\User;
@@ -37,11 +37,11 @@ class SendNotificationJob
 
 declare(strict_types=1);
 
-namespace App\Jobs;
+namespace App\Service;
 
 use App\Entity\User;
 use Nyxio\Contract\Queue\QueueInterface;
-use App\Jobs\SendNotificationJob;
+use App\Job\SendNotificationJob;
 use Nyxio\Kernel\Server\Queue;
 
 class CreateUserService
