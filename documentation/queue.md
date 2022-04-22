@@ -38,7 +38,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Entity\User;
-use Nyxio\Contract\Queue\QueueInterface;
+use Nyxio\Contract\Kernel\Server\Job\Queue\QueueInterface;
 use App\Job\SendNotificationJob;
 use Nyxio\Kernel\Server\Queue;
 
