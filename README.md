@@ -37,5 +37,7 @@
 <br>[Providers](documentation/providers.md) – Bootstrap application, setup container singletons and binds, and other things
 <br>[Translate](documentation/language.md) – Application messages
 <br>[Events](documentation/events.md) – Framework and application events
+
+## Jobs
 <br>[Queues](documentation/queues.md) – Queue jobs
-<br>[Cron](documentation/cron.md) – Cron jobs
+<br>[Scheduled](documentation/scheduled.md) – Scheduled jobs
