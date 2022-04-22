@@ -1,8 +1,6 @@
-# Queues
+# Queue jobs
 
-> All jobs (including [Cron](cron.md) jobs) dispatch **asynchronously** via workers. If ALL workers are busy, system tries dispatch job again.
-
-> When Job dispatch stopped due to error, system call will Event `kernel.job.error` (and `kernel.cron.error`, if it cron job)
+> All jobs (including [Scheduled](schedule.md) jobs) dispatch **asynchronously** via workers. If ALL workers are busy, system tries dispatch job again.
 
 
 ###### `Job` example:
@@ -90,17 +88,17 @@ $this->queue->push(
         retryCount: 5, // retry count
         retryDelay: 5000, // retry after 5 sec, if was an exception
         delay: 1000, // perform after 1 sec after push
+        finishCallback: static function () {
+            echo 'My job is done!' . \PHP_EOL;
+        },
     ),
-    finishCallback: static function () {
-        echo 'My job is done!' . \PHP_EOL;
-    },
 );
 ```
 
 
 # Events
 
-| Trigger              | Event Name                                   | Event Class                        |
-|----------------------|:---------------------------------------------|:-----------------------------------|
-| Job complete         | kernel.job.completed                         | `\Nyxio\Kernel\Event\JobCompleted` |
-| Job throw exception  | kernel.job.error                             | `\Nyxio\Kernel\Event\JobError`     |
+| Trigger              | Event Name                                   | Event Class                          |
+|----------------------|:---------------------------------------------|:-------------------------------------|
+| Job complete         | kernel.job.queue.complete                    | `\Nyxio\Kernel\Event\QueueComplete`  |
+| Job throw exception  | kernel.job.queue.exception                   | `\Nyxio\Kernel\Event\QueueException` |
