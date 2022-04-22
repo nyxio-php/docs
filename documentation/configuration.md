@@ -21,12 +21,12 @@
 | `groups`  | Used for registration your actions groups                            | `array` | showcase group  |
 
 
-### cron.php
+### schedule.php
 
 
 | Option    | Description                                                          | Type    | Default         |
 |-----------|:---------------------------------------------------------------------|:--------|-----------------|
-| `jobs` | Used for registration your [Cron](cron.md) jobs                        | `array` | []              |
+| `jobs` | Used for registration your [Schedule](schedule.md) jobs                 | `array` | []              |
 
 ### server.php
 
