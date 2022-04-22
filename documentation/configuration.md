@@ -26,7 +26,7 @@
 
 | Option    | Description                                                          | Type    | Default         |
 |-----------|:---------------------------------------------------------------------|:--------|-----------------|
-| `jobs` | Used for registration your [Schedule](schedule.md) jobs                 | `array` | []              |
+| `jobs` | Used for registration your [Scheduled](schedule.md) jobs                | `array` | []              |
 
 ### server.php
 
