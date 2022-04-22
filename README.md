@@ -39,5 +39,5 @@
 <br>[Events](documentation/events.md) – Framework and application events
 
 ## Jobs
-<br>[Queues](documentation/queues.md) – Queue jobs
+<br>[Queue](documentation/queue.md) – Queue jobs
 <br>[Scheduled](documentation/scheduled.md) – Scheduled jobs
