@@ -1,4 +1,4 @@
-# Schedule Jobs
+# Schedule jobs
 
 #### How to use
 1. Create job:
@@ -27,7 +27,7 @@ class MyCronJob implements ScheduledJobInterface
 
 <br>Affter start the server and scheduled job has been success registred, terminal output the message about this:
 
-```Cron job App\Job\Sheduled\MyJob is registered | */1 * * * *```
+```Scheduled job App\Job\Sheduled\MyJob is registered | */1 * * * *```
 
 
 # Events
