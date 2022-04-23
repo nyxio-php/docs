@@ -30,11 +30,11 @@
 
 ### server.php
 
-| Option    | Description                                                                                                                      | Type      | Default     |
-|-----------|:---------------------------------------------------------------------------------------------------------------------------------|:----------|-------------|
-| `host`    | Server host                                                                                                                      | `string`  | `127.0.0.1` |
-| `port`    | Server port                                                                                                                      | `integer` | `9501`      |
-| `options` | Extra options for OpenSwoole server ([see OpenSwoole documentation](https://openswoole.com/docs/modules/swoole-http-server-doc)) | `array`   | -           |
+| Option    | Description                                                                                                                                | Type      | Default     |
+|-----------|:------------------------------------------------------------------------------------------------------------------------------------------|:----------|-------------|
+| `host`    | Server host                                                                                                                                | `string`  | `127.0.0.1` |
+| `port`    | Server port                                                                                                                                | `integer` | `9501`      |
+| `options` | Extra options for OpenSwoole server ([see OpenSwoole documentation](https://openswoole.com/docs/modules/swoole-http-server/configuration)) | `array`   | -           |
 #### `lang` path
 
 Place in this path your files with application messages.
