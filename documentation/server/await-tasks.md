@@ -1,6 +1,6 @@
 # Await Task
 
-> Await it's synchronous tasks. Tasks can throw exceptions, return data and use [`Connection Pool`](connection-pool.md).
+> Await it's synchronous tasks. Tasks can throw exceptions, return data and use [Connection Pool](connection-pool.md).
 
 
 ###### Exampme of use:
