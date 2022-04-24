@@ -24,7 +24,7 @@
 - Get post, get, cookie, headers from `Request`
 - Set response headers and status code
 - Send `json` response
-- Throw exceptions and don't worry about convering it to `json`
+- Throw exceptions and don't worry about convering them to `json`
 
 <br>
 
