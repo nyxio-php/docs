@@ -1,4 +1,4 @@
-# Schedule jobs
+# Scheduled tasks
 
 #### How to use
 1. Create job:
