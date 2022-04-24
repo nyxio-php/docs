@@ -38,11 +38,11 @@
 
 ## Jobs
 
-[Connection Pool](documentation/connection-pool.md) – Connection Pool
+[Connection Pool](documentation/server/connection-pool.md) – Connection Pool
 
 #### Async
-[Queue](documentation/queue.md) – Queue jobs
-<br>[Scheduled](documentation/scheduled.md) – Scheduled jobs
+[Queue](documentation/server/queue-jobs.md) – Queue jobs
+<br>[Scheduled](documentation/server/scheduled-jobs.md) – Scheduled jobs
 
 #### Await
-[AwaitTask](documentation/await-task.md) – Await tasks
+[AwaitTask](documentation/server/await-tasks.md) – Await tasks
