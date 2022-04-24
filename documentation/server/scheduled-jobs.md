@@ -1,7 +1,7 @@
-# Schedule jobs
+# Scheduled Jobs
 
 #### How to use
-1. Create job:
+1. Create a `job`:
 ```php
 <?php
 
@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace App\Job;
 
-use Nyxio\Contract\Kernel\Server\Job\ScheduledJobInterface;
-use \Nyxio\Kernel\Server\Job\Schedule\Attribute\Schedule;
+use Nyxio\Contract\Kernel\Server\Job\Async\Schedule\ScheduledJobInterface;
+use Nyxio\Kernel\Server\Job\Async\Schedule\Attribute\Schedule;
 
 #[Schedule(expression: '*/1 * * * *')]
 class MyCronJob implements ScheduledJobInterface
@@ -23,7 +23,7 @@ class MyCronJob implements ScheduledJobInterface
 ```
 > Argument `expression` in `Schedule` attribute powered by [dragonmantank/cron-expression](https://github.com/dragonmantank/cron-expression) package. See package page to explore possible expressions.
 
-2. Add job to [schedule.php](configuration.md#schedulephp) config.
+2. Add job to [schedule.php](../configuration.md#schedulephp) config.
 
 <br>Affter start the server and scheduled job has been success registred, terminal output the message about this:
 
