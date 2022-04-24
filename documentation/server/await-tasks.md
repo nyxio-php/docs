@@ -35,6 +35,7 @@ declare(strict_types=1);
 namespace App\Job\Service;
 
 use Nyxio\Contract\Kernel\Server\Job\Await\AwaitTaskInterface;
+use Nyxio\Kernel\Server\Job\Await\Options;
 use App\Entity\User;
 use App\Job\Task\GetUser;
 use App\Job\Task\UpdateUser;
@@ -47,7 +48,11 @@ class GetUserService
     
     public function getUser(int $userId): User
     {
-        $user = $this->awaitTask->run(GetUser::class, ['userId' => $userId]);
+        $user = $this->awaitTask->run(
+            job: GetUser::class, 
+            data: ['userId' => $userId], 
+            options: new Options(timeout: 2)
+        );
         
         if (!$user instanceof User) {
             throw new \Exception('user not found');
