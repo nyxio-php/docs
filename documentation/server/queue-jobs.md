@@ -1,6 +1,6 @@
 # Queue jobs
 
-> Queue jobs (including [Scheduled](scheduled-tasks.md) jobs) dispatch **asynchronously** via workers.
+> Queue jobs (including [Scheduled](scheduled-jobs.md) jobs) dispatch **asynchronously** via workers.
 
 
 ###### `Job` example:
