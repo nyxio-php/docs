@@ -1,6 +1,6 @@
 # Queue jobs
 
-> All jobs (including [Scheduled](schedule.md) jobs) dispatch **asynchronously** via workers. If ALL workers are busy, system tries dispatch job again.
+> Queue jobs (including [Scheduled](scheduled-tasks.md) jobs) dispatch **asynchronously** via workers.
 
 
 ###### `Job` example:
@@ -38,9 +38,9 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Entity\User;
-use Nyxio\Contract\Kernel\Server\Job\Queue\QueueInterface;
+use Nyxio\Contract\Kernel\Server\Job\Async\Queue\QueueInterface;
+use Nyxio\Contract\Kernel\Server\Job\Async\OptionsInterface;
 use App\Job\SendNotificationJob;
-use Nyxio\Kernel\Server\Queue;
 
 class CreateUserService
 {
@@ -62,7 +62,7 @@ class CreateUserService
                 'user' => $user,
                 'notificationType' => 'user.created',
             ],
-            options: new Queue\Options(
+            options: new Options(
                 retryCount: 5, // retry count
                 retryDelay: 5000, // retry after 5 sec, if was an exception
                 delay: 1000, // perform after 1 sec after push
