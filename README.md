@@ -23,8 +23,6 @@
 ## Http
 
 [Actions](documentation/actions.md) – "Controllers"
-<br>[Request](documentation/request.md) – HTTP request (decorator for PSR-7)
-<br>[Response](documentation/response.md) – HTTP response (decorator for PSR-7)
 <br>[Routing](documentation/routing.md) – Simple and fast. Uses [PHP 8.1 Attributes](https://www.php.net/manual/en/language.attributes.overview.php)
 <br> [Middlewares](documentation/middlewares.md) – Uses [PHP 8.1 Attributes](https://www.php.net/manual/en/language.attributes.overview.php)
 <br> [Validation](documentation/validation.md) – For request data and url
@@ -40,5 +38,11 @@
 
 ## Jobs
 
+[Connection Pool](documentation/connection-pool.md) – Connection Pool
+
+#### Async
 [Queue](documentation/queue.md) – Queue jobs
 <br>[Scheduled](documentation/scheduled.md) – Scheduled jobs
+
+#### Await
+[AwaitTask](documentation/await-task.md) – Await tasks
