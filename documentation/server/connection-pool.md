@@ -1,10 +1,10 @@
 # Connection Pool
 
-All jobs (Queue, Scheduled and Await) use `Open Swoole` task worker pool. In [server settings](../configuration.md#serverphp), you can setup the number of task workers (`task_worker_num` option).
+All jobs (Queue, Scheduled and Await) use Open Swoole task worker pool. In [server settings](../configuration.md#serverphp), you can setup the number of task workers (`task_worker_num` option).
 
 <p/>
 
-`Connection Pool` consists of independent connections to your sql database, redis server or to others servers. 
+Connection Pool consists of independent connections to your sql database, redis server or to others servers. 
 <br>It means that twenty task worker - twenty connections. 
 
 <p/>
