@@ -11,7 +11,7 @@ use Nyxio\Routing\Attribute\Route;
 use Nyxio\Routing\Attribute\RouteGroup;
 
 #[Route(
-    method: Method.GET,
+    method: Method:GET,
     uri: '/user/@userId/order/@orderHash',
     rules: [
         'userId' => Rule::Integer,
