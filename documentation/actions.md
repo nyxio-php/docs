@@ -13,6 +13,18 @@
 
 - `$response` MUST BE typed by `Nyx\Http\Response` OR inheritor class.
 - **Action** is a singleton, DO NOT use state properties. 
+- `Response` class can only response by `json`
+
+### What can
+- Uri parameters (see [routing documentation](routing.md) for examples)
+- Validate uri parameters (see [routing documentation](routing.md) for examples)
+- Auto-convertation uri parameters to types (int, float, bool and null)
+- Use [middlewares](middlewares.md) (see example)
+- Use uri groups (see example)
+- Use [dependency injection](container.md) in `constructor` method
+- Get post, get, cookie, headers from `Request`
+- Set response headers and status code
+- Throw exceptions and don't worry about convering it to `json`
 
 <br>
 
